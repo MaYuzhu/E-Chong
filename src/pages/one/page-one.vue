@@ -168,8 +168,37 @@
             <img src="./img/b30bab969d87ef724986ad42420432f4.jpg" alt="">
           </div>
         </div>
+        <div class="zuic">
+          <img src="./img/zuicanjiang.jpg" alt="">
+          <img src="./img/zuicanjiang-content.jpg" alt="">
+          <img src="./img/tebiexinqiu.jpg" alt="">
+        </div>
+        <div class="chaopin">
+          <img src="./img/left.jpg" alt="">
+          <img src="./img/right-1.jpg" alt="">
+          <img src="./img/right-2.jpg" alt="">
+        </div>
+        <div class="tese">
+          <img src="./img/teselanmu.jpg" alt="">
+          <img src="./img/tese-item.jpg" alt="">
+          <img src="./img/tese-item.jpg" alt="">
+          <img src="./img/tese-item.jpg" alt="">
+          <img src="./img/tese-item.jpg" alt="">
+          <img src="./img/tese-item.jpg" alt="">
+          <img src="./img/tese-item.jpg" alt="">
+        </div>
+        <div class="bottom">
+          <div class="bots">
+            <a href="javascript:" style="color: red">触屏版</a>
+            <a href="javascript:">手机客户端</a>
+            <a href="javascript:">关于我们</a>
+            <a href="javascript:">联系我们</a>
+          </div>
+          <p>© wap.epet.com 版权：重庆易宠科技有限公司</p>
+        </div>
       </div>
 
+      <div class="zhayan"></div>
     </div>
   </div>
 
@@ -188,6 +217,7 @@
     methods:{
       guanbi(){
         this.isShow = false
+        document.querySelector('.one').classList.add('on_one')
       },
 
     },
@@ -233,10 +263,13 @@
   height 100%
   overflow hidden
   position relative
+  background white
   .one
     padding-top 140px
     padding-bottom 55px
-
+    &.on_one
+      padding-top 85px
+      padding-bottom 55px
     .header-wrap
       position fixed
       top 0
@@ -414,14 +447,70 @@
 
       .dapaiWrap
         overflow hidden
+        margin-top -2px
         .daleft
           width 50%
           float left
           img
             width 100%
+            margin-top -2px
         .daright
           width 50%
           float left
           img
             width 100%
+            margin-top -2px
+      .zuic
+        width 100%
+        margin-top -3px
+        img
+          width 100%
+          display block
+      .chaopin
+        width 100%
+        overflow hidden
+        img
+          float left
+          width 50%
+        >:nth-child(1)
+          width 50%
+      .tese
+        width 100%
+        overflow hidden
+        margin-top -3px
+        margin-bottom 3px
+        >:nth-child(1)
+          width 100%
+        img
+          float left
+          width 50%
+      .bottom
+        width 100%
+        padding-bottom  5px
+        div
+          width 100%
+          display flex
+          justify-content center
+          a
+            margin 0 5px
+            color #5f6d6e
+        p
+          font-size 10px
+          text-align center
+          line-height 18px
+          color #8b999a
+  .zhayan
+    position fixed
+    z-index 50
+    right 0px
+    bottom 100px
+    width 85px
+    height 94px
+    background url('./img/godog.png') no-repeat
+    background-size 100% 100%
+    animation zhayan 1.5s infinite steps(2)
+    @keyframes zhayan {
+      0% {background : url('./img/godog.png') no-repeat 0px 0px}
+      100% {background : url('./img/godog.png') no-repeat -173px 0px}
+    }
 </style>
