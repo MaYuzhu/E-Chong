@@ -3,19 +3,19 @@
     <div class="mine">
       <div class="bg">
         <div class="zhuce">
-          <a href="/"><img src="./img/personal-bico3.png" alt=""></a>
+          <a href="javascript:" @click="$router.back()"><img src="./img/personal-bico3.png" alt=""></a>
           <a href="javascript:">注册</a>
         </div>
         <div class="ec">
           <img src="./img/logo.png" alt="">
         </div>
         <div class="tab_login">
-          <div><a href="javascript:">普通登录</a><i></i></div>
-          <div><a href="javascript:">手机动态密码登录</a><i></i></div>
+          <div><a href="javascript:"  @click="addOn(true)">普通登录</a><i v-show="have"></i></div>
+          <div><a href="javascript:"  @click="addOn(false)">手机动态密码登录</a><i v-show="!have"></i></div>
         </div>
       </div>
       <form action="javascript:" class="form_wrap">
-        <ul class="form1" @click="addOn" :class="{on:have}">
+        <ul class="form1" :class="{on:!have}">
           <li>
             <i class="iconfont icon-touxiang"></i>
             <input type="text" placeholder="手机号/邮箱/用户名">
@@ -25,7 +25,7 @@
             <input type="password" placeholder="输入密码">
           </li>
         </ul>
-        <ul class="form2" @click="addOn" :class="{on:!have}">
+        <ul class="form2" :class="{on:have}">
           <li>
             <i class="iconfont icon-shouji"></i>
             <input type="text" placeholder="已注册的手机号">
@@ -40,7 +40,7 @@
             <div>获取验证码</div>
           </li>
         </ul>
-        <div class="wang"><a href="javascript">忘记密码？</a></div>
+        <div class="wang"><a href="javascript:">忘记密码？</a></div>
         <input type="submit" class="deng" value="登     录" />
       </form>
       <div class="hezuo">
@@ -65,9 +65,14 @@
       }
     },
     methods:{
-      addOn(){
-        this.have = !this.have
-      }
+      addOn(x){
+        if(x){
+          this.have = true
+        }else {
+          this.have = false
+        }
+      },
+
     }
 
 
@@ -149,7 +154,6 @@
               text-align center
               color rgba(255,255,255,.9)
             >i
-              display none
               width 0
               height 0
               border 10px solid transparent

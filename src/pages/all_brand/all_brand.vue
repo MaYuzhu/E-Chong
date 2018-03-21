@@ -1,6 +1,8 @@
 <template>
 	<div>
-    <nav_header></nav_header>
+    <nav_header>
+      <span slot="span">全部品牌</span>
+    </nav_header>
     <ul class="big_wrap">
       <li class="a_all">
         <p>A</p>
@@ -196,7 +198,7 @@
         </ul>
       </li>
     </ul>
-    <ul class="zhimu">
+    <ul class="zimu">
       <li class="on">A</li>
       <li>B</li>
       <li>C</li>
@@ -230,6 +232,15 @@
 <script>
   import nav_header from '../../components/nav_header/nav_header.vue'
   export default {
+    data(){
+      return{
+        isShow:false
+      }
+    },
+    methods:{
+
+    },
+
     components:{
       nav_header
     }
@@ -238,7 +249,7 @@
 
 <style lang="stylus" rel="stylesheet/stylus">
   .big_wrap
-    padding-top 50px
+
     >.a_all
       >p
         font-size 18px
@@ -275,7 +286,7 @@
               color #999
               margin 8px 0 5px 18px
 
-  .zhimu
+  .zimu
     position fixed
     right 0
     top 50%

@@ -19,10 +19,11 @@
   export default {
     methods:{
       goto(path){
-        this.$router.replace(path)
+        this.$router.push(path)
       },
       isCurrent(path){
-        return this.$route.path === path
+        //return this.$route.path === path
+        return this.$route.path.search(path) === 0
       }
     }
   }

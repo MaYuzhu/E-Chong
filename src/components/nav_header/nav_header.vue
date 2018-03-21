@@ -2,14 +2,14 @@
 	<div>
     <div class="wrap">
       <div class="head">
-        <a href="javascript:"><i class="iconfont icon-zuo"></i></a>
-        <span>购物车</span>
+        <a href="javascript:" @click="$router.back()"><i class="iconfont icon-zuo"></i></a>
+        <slot name="span"></slot>
         <i class="iconfont icon-fenlei" @click="navShow"></i>
       </div>
       <transition name="navList">
         <ul class="show" v-show="isShow">
           <li>
-            <a href="javascript">
+            <a href="javascript:">
               <i class="iconfont icon-shouye"></i>
               <p>首页</p>
             </a>
@@ -24,6 +24,7 @@
             <a href="javascript">
               <i class="iconfont icon-gouwuche"></i>
               <p>购物车</p>
+              <div><span>0</span></div>
             </a>
           </li>
           <li>
@@ -52,23 +53,31 @@
       }
     }
   }
+          //更季杨柳待春雨
+        //一杯过往敬无悔
+      //缘聚还散谢涵濡
+    //夜风微醺众生美
 </script>
 
 <style lang="stylus" rel="stylesheet/stylus">
 .wrap
-
+  width 100%
+  overflow hidden
   .head
     width 100%
     height 50px
-    background pink
+    background white
     line-height 50px
     font-size 0
     vertical-align middle
     border-bottom 1px solid #999
-    position absolute
-    z-index 50
+    text-align center
+    /*position absolute
+    z-index 50*/
     >a
       display inline-block
+      float left
+      height 100%
       i
         font-size 30px
         color #858585
@@ -80,13 +89,13 @@
     >span
       font-size 20px
       display inline-block
-      width 80%
+
       text-align center
       margin 0 auto
       text-overflow: ellipsis;
       white-space: nowrap;
       overflow: hidden;
-
+      color black
     >i
       font-size 30px
       color #858585
@@ -95,13 +104,17 @@
       white-space: nowrap;
       overflow: hidden;
       margin 0 auto
+      float right
+      padding-right 10px
   .show
     width 100%
     height 66px
-    background lavender
-    padding-top 50px
+    background white
+    /*padding-top 50px*/
     display flex
+    border-bottom 1px solid #999
     >li
+      overflow hidden
       width 25%
       display flex
       align-items center
@@ -109,6 +122,7 @@
         display block
         text-align center
         width 100%
+        position relative
         >i
           font-size 26px
           text-align center
@@ -117,9 +131,22 @@
           text-align center
           margin 3px 0
           color #333
-    transform: scaleY(1)
+        >div
+          position absolute
+          top -5px
+          left 50px
+          width 14px
+          height 14px
+          border-radius 9px
+          border 1px solid #ffffff
+          background rgb(244, 0, 0)
+          line-height 12px
+          text-align center
+          >span
+            color white
+            font-size 12px
     &.navList-enter-active, &.navList-leave-active
-      transition: transform .5s
+      transition: .5s
     &.navList-enter, &.navList-leave-to
-      transform: scaleY(0)
+      height 0
 </style>

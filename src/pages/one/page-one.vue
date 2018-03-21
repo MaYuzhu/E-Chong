@@ -23,7 +23,7 @@
 
         </div>
         <div class="nav" ref="navWrap">
-          <ul class="nav-inner" >
+          <ul class="nav-inner" @click="changeOn">
             <li><a href="javascript:"> <span class="on">首页</span></a></li>
             <li><a href="javascript:"> <span>狗狗主粮</span></a></li>
             <li><a href="javascript:"> <span>服饰城</span></a></li>
@@ -219,9 +219,13 @@
         this.isShow = false
         document.querySelector('.one').classList.add('on_one')
       },
+      changeOn(){
+        console.log(this)
+      }
 
     },
     mounted () {
+
       new BScroll(this.$refs.navWrap,{
         click:true,
         scrollX:true,
@@ -355,11 +359,13 @@
         width 100%
         .swiper-pagination-bullet
           background rgba(240,240,240,.6)
+          transition all .5s
         .swiper-pagination-bullet-active
           width 16px
           height 8px
           border-radius 4px
           background rgba(240,240,240,.6)
+          transition all .5s
         img
           width 100%
 

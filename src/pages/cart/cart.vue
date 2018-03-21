@@ -1,6 +1,8 @@
 <template>
 	<div>
-    <nav_header></nav_header>
+    <nav_header>
+      <span slot="span">购物车</span>
+    </nav_header>
     <div class="cart">
       <p><i class="iconfont icon-gouwuche"></i></p>
       <p>购物车是空的</p>
@@ -21,7 +23,6 @@
 
 <style lang="stylus" rel="stylesheet/stylus">
   .cart
-
     padding-top 50px
     background white
     >:nth-child(1)

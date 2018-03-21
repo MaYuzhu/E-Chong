@@ -15,17 +15,7 @@
 
 <script>
   export default {
-    data(){
-      return{
-        isShow : true
-      }
-    },
-    methods:{
-      changeShow(){
-        this.isShow = false
-        alert(999)
-      }
-    }
+
   }
 </script>
 
