@@ -1,5 +1,5 @@
 <template>
-	<div>
+	<div class="classified">
     <div class="top">
       <div class="fen">
         <router-link to="/classified/class_one" tag="a">分类</router-link>
@@ -20,6 +20,9 @@
 </script>
 
 <style lang="stylus" rel="stylesheet/stylus">
+.classified
+  width 100%
+  height 100%
   .top
     position fixed
     z-index 200

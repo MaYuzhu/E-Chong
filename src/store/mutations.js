@@ -10,6 +10,15 @@ import {
 export default {
   [RECEIVE_CATEGORYS](state,{categorys}){
     state.categorys = categorys
+  },
+  [RECEIVE_BRAND](state,{brand}){
+    state.brand = brand
+  },
+  [RECEIVE_ALLBRANDS](state,{allbrands}){
+    state.allbrands = allbrands
+  },
+  [RECEIVE_HOMEPAGE](state,{homepage}){
+    state.homepage = homepage
   }
 
 }

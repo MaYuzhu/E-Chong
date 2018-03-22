@@ -4,238 +4,40 @@
       <span slot="span">全部品牌</span>
     </nav_header>
     <ul class="big_wrap">
-      <li class="a_all">
-        <p>A</p>
+      <li class="a_all" v-for="(item, index) in allbrands.brand">
+        <p>{{item.order}}</p>
         <ul class="a_start">
-          <li>
-            <div><img src="./all.jpg" alt=""></div>
+          <li v-for="(bra, i) in item.list" :key="i">
+            <div><img :src="bra.logo" alt=""></div>
             <div>
-              <p>艾尔</p>
-              <p>中国</p>
+              <p>{{bra.name}}</p>
+              <p>{{bra.address}}</p>
             </div>
           </li>
-          <li>
-            <div><img src="./all.jpg" alt=""></div>
-            <div>
-              <p>艾尔</p>
-              <p>中国</p>
-            </div>
-          </li>
-          <li>
-            <div><img src="./all.jpg" alt=""></div>
-            <div>
-              <p>艾尔</p>
-              <p>中国</p>
-            </div>
-          </li>
-          <li>
-            <div><img src="./all.jpg" alt=""></div>
-            <div>
-              <p>艾尔</p>
-              <p>中国</p>
-            </div>
-          </li>
-          <li>
-            <div><img src="./all.jpg" alt=""></div>
-            <div>
-              <p>艾尔</p>
-              <p>中国</p>
-            </div>
-          </li>
-          <li>
-            <div><img src="./all.jpg" alt=""></div>
-            <div>
-              <p>艾尔</p>
-              <p>中国</p>
-            </div>
-          </li>
-
-        </ul>
-      </li>
-
-      <li class="a_all">
-        <p>B</p>
-        <ul class="a_start">
-          <li>
-            <div><img src="./all.jpg" alt=""></div>
-            <div>
-              <p>艾尔</p>
-              <p>中国</p>
-            </div>
-          </li>
-          <li>
-            <div><img src="./all.jpg" alt=""></div>
-            <div>
-              <p>艾尔</p>
-              <p>中国</p>
-            </div>
-          </li>
-          <li>
-            <div><img src="./all.jpg" alt=""></div>
-            <div>
-              <p>艾尔</p>
-              <p>中国</p>
-            </div>
-          </li>
-          <li>
-            <div><img src="./all.jpg" alt=""></div>
-            <div>
-              <p>艾尔</p>
-              <p>中国</p>
-            </div>
-          </li>
-          <li>
-            <div><img src="./all.jpg" alt=""></div>
-            <div>
-              <p>艾尔</p>
-              <p>中国</p>
-            </div>
-          </li>
-          <li>
-            <div><img src="./all.jpg" alt=""></div>
-            <div>
-              <p>艾尔</p>
-              <p>中国</p>
-            </div>
-          </li>
-
-        </ul>
-      </li>
-      <li class="a_all">
-        <p>C</p>
-        <ul class="a_start">
-          <li>
-            <div><img src="./all.jpg" alt=""></div>
-            <div>
-              <p>艾尔</p>
-              <p>中国</p>
-            </div>
-          </li>
-          <li>
-            <div><img src="./all.jpg" alt=""></div>
-            <div>
-              <p>艾尔</p>
-              <p>中国</p>
-            </div>
-          </li>
-          <li>
-            <div><img src="./all.jpg" alt=""></div>
-            <div>
-              <p>艾尔</p>
-              <p>中国</p>
-            </div>
-          </li>
-          <li>
-            <div><img src="./all.jpg" alt=""></div>
-            <div>
-              <p>艾尔</p>
-              <p>中国</p>
-            </div>
-          </li>
-          <li>
-            <div><img src="./all.jpg" alt=""></div>
-            <div>
-              <p>艾尔</p>
-              <p>中国</p>
-            </div>
-          </li>
-          <li>
-            <div><img src="./all.jpg" alt=""></div>
-            <div>
-              <p>艾尔</p>
-              <p>中国</p>
-            </div>
-          </li>
-
-        </ul>
-      </li>
-      <li class="a_all">
-        <p>D</p>
-        <ul class="a_start">
-          <li>
-            <div><img src="./all.jpg" alt=""></div>
-            <div>
-              <p>艾尔</p>
-              <p>中国</p>
-            </div>
-          </li>
-          <li>
-            <div><img src="./all.jpg" alt=""></div>
-            <div>
-              <p>艾尔</p>
-              <p>中国</p>
-            </div>
-          </li>
-          <li>
-            <div><img src="./all.jpg" alt=""></div>
-            <div>
-              <p>艾尔</p>
-              <p>中国</p>
-            </div>
-          </li>
-          <li>
-            <div><img src="./all.jpg" alt=""></div>
-            <div>
-              <p>艾尔</p>
-              <p>中国</p>
-            </div>
-          </li>
-          <li>
-            <div><img src="./all.jpg" alt=""></div>
-            <div>
-              <p>艾尔</p>
-              <p>中国</p>
-            </div>
-          </li>
-          <li>
-            <div><img src="./all.jpg" alt=""></div>
-            <div>
-              <p>艾尔</p>
-              <p>中国</p>
-            </div>
-          </li>
-
         </ul>
       </li>
     </ul>
     <ul class="zimu">
-      <li class="on">A</li>
-      <li>B</li>
-      <li>C</li>
-      <li>D</li>
-      <li>E</li>
-      <li>F</li>
-      <li>G</li>
-      <li>H</li>
-      <li>I</li>
-      <li>J</li>
-      <li>K</li>
-      <li>L</li>
-      <li>M</li>
-      <li>N</li>
-      <li>O</li>
-      <li>P</li>
-      <li>Q</li>
-      <li>R</li>
-      <li>S</li>
-      <li>T</li>
-      <li>U</li>
-      <li>V</li>
-      <li>W</li>
-      <li>X</li>
-      <li>Y</li>
-      <li>Z</li>
+      <li class=" " v-for="(item,i) in allbrands.brand" :key="i">{{item.order}}</li>
+
     </ul>
 	</div>
 </template>
 
 <script>
   import nav_header from '../../components/nav_header/nav_header.vue'
+  import {mapState} from 'vuex'
   export default {
-    data(){
+    data () {
       return{
         isShow:false
       }
+    },
+    mounted () {
+      this.$store.dispatch('getAllBrand')
+    },
+    computed:{
+      ...mapState(['allbrands'])
     },
     methods:{
 

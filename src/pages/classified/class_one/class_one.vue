@@ -1,29 +1,18 @@
 <template>
 	<div class="app">
-    <div style="width: 100px;height: 100px;background: lavenderblush">{{categorys}}</div>
+
     <div class="left" ref="leftList">
       <ul class="gouliang">
-        <li :class="{on:!isYes}" @click="setOn">为您推荐</li>
-        <li>狗狗零食</li>
-        <li>狗狗玩具</li>
-        <li>狗狗医疗</li>
-        <li>狗狗美容</li>
-        <li>狗狗呵呵</li>
-        <li>狗狗哈哈</li>
-        <li>狗呵呵呵</li>
-        <li>狗狗玩具</li>
-        <li>狗狗医疗</li>
-        <li>狗狗美容</li>
-        <li>狗狗呵呵</li>
-        <li>狗狗哈哈</li>
-        <li>狗狗end</li>
-     </ul>
+        <li  @click="setOn"
+            v-for="(list,index) in categorys" :key="index">{{list.name}}</li>
+
+      </ul>
     </div>
     <div class="right" ref="rightList">
-      <div>
+      <div v-for="(list,index) in categorys" :key="index">
         <div class="food_wrap">
           <div class="food">
-            <a href="javascript:">狗狗零食<span>更多商品</span></a>
+            <a href="javascript:">{{list.name}}<span>更多商品</span></a>
           </div>
           <div class="foods">
             <ul>
@@ -107,26 +96,37 @@
     data(){
       return{
         isYes:true,
-        categorys:[]
       }
     },
     mounted(){
       this.$store.dispatch('getCategorys',() => {
+          this.$nextTick(() => {
+            this._left()
+            this._right()
+          })
 
       })
-      new BScroll(this.$refs.leftList,{
-        click:true,
-        scrollY:true,
-      }),
-      new BScroll(this.$refs.rightList,{
-        click:true,
-        scrollY:true,
-      })
+
      },
     methods:{
       setOn(){
         this.isYes = false
       },
+      _left(){
+        new BScroll(this.$refs.leftList,{
+          click:true,
+          scrollY:true,
+        })
+      },
+      _right(){
+        new BScroll(this.$refs.rightList,{
+          click:true,
+          scrollY:true,
+        })
+      }
+    },
+    computed:{
+      ...mapState(['categorys'])
     }
   }
 </script>
@@ -138,13 +138,14 @@
   height 100%
   background #dddddd
   position absolute
-
+  overflow hidden
   .left
     width 20%
     position absolute
     left 0
     top 0
     height 84%
+    margin-top 3px
     ul
       li
         font-size 14px

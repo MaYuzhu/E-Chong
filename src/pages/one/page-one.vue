@@ -1,6 +1,7 @@
 <template>
   <div class="wrap">
     <div class="one">
+
       <div class="header-wrap">
         <div class="guanggao" v-if="isShow">
           <img src="./img/adv.jpg" alt="">
@@ -24,178 +25,171 @@
         </div>
         <div class="nav" ref="navWrap">
           <ul class="nav-inner" @click="changeOn">
-            <li><a href="javascript:"> <span class="on">首页</span></a></li>
-            <li><a href="javascript:"> <span>狗狗主粮</span></a></li>
-            <li><a href="javascript:"> <span>服饰城</span></a></li>
+            <li v-for="(item,index) in homepage.menus" :key="index"><a href="javascript:"> <span class="">{{item.menu_name}}</span></a></li>
+
+            <!--<li><a href="javascript:"> <span>服饰城</span></a></li>
             <li><a href="javascript:"> <span>医疗保健</span></a></li>
             <li><a href="javascript:"> <span>零食玩具</span></a></li>
             <li><a href="javascript:"> <span>日用外出</span></a></li>
-            <li><a href="javascript:"> <span>美容香波</span></a></li>
+            <li><a href="javascript:"> <span>美容香波</span></a></li>-->
           </ul>
         </div>
       </div>
-      <div class="one-content swiper-one">
-        <div class="lunbo">
-          <div class="swiper-container">
-            <div class="swiper-wrapper">
-              <div class="swiper-slide">
-                <img src="./img/baolu.jpg" alt="">
+      <div class="one-content-w w " ref="contentWrap">
+        <div class="one-content">
+          <div class="lunbo">
+            <div class="swiper-container">
+              <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                  <img src="./img/baolu.jpg" alt="">
+                </div>
+                <div class="swiper-slide">
+                  <img src="./img/fumo.jpg" alt="">
+                </div>
+                <div class="swiper-slide">
+                  <img src="./img/haiwai.jpg" alt="">
+                </div>
+                <div class="swiper-slide">
+                  <img src="./img/ouguan.jpg" alt="">
+                </div>
+                <div class="swiper-slide">
+                  <img src="./img/zhuliang.jpg" alt="">
+                </div>
+                <div class="swiper-slide">
+                  <img src="./img/tongzhi.jpg" alt="">
+                </div>
               </div>
-              <div class="swiper-slide">
-                <img src="./img/fumo.jpg" alt="">
-              </div>
-              <div class="swiper-slide">
-                <img src="./img/haiwai.jpg" alt="">
-              </div>
-              <div class="swiper-slide">
-                <img src="./img/ouguan.jpg" alt="">
-              </div>
-              <div class="swiper-slide">
-                <img src="./img/zhuliang.jpg" alt="">
-              </div>
-              <div class="swiper-slide">
-                <img src="./img/tongzhi.jpg" alt="">
-              </div>
+              <!-- Add Pagination -->
+              <div class="swiper-pagination"></div>
             </div>
-            <!-- Add Pagination -->
-            <div class="swiper-pagination"></div>
           </div>
-        </div>
-        <div class="big-lun"><img src="./img/dog.jpg" alt=""></div>
-        <ul class="one-tuan">
-          <li><a href="javascript:"><img src="./img/test.jpg" alt=""></a></li>
-          <li><a href="javascript:"><img src="./img/test.jpg" alt=""></a></li>
-          <li><a href="javascript:"><img src="./img/test.jpg" alt=""></a></li>
-          <li><a href="javascript:"><img src="./img/test.jpg" alt=""></a></li>
-          <li><a href="javascript:"><img src="./img/test.jpg" alt=""></a></li>
-          <li><a href="javascript:"><img src="./img/test.jpg" alt=""></a></li>
-          <li><a href="javascript:"><img src="./img/test.jpg" alt=""></a></li>
-          <li><a href="javascript:"><img src="./img/test.jpg" alt=""></a></li>
-          <li><a href="javascript:"><img src="./img/test.jpg" alt=""></a></li>
-          <li><a href="javascript:"><img src="./img/test.jpg" alt=""></a></li>
-        </ul>
-        <div class="yizhe">
-          <img src="./img/miaosha1.jpg" alt="">
-        </div>
-        <div class="gouliang-wrap">
-          <div class="gouliang-top">
-            <div></div>
-            <div>本场结束<span>12:00</span></div>
-            <div>更多&gt;</div>
-          </div>
-          <div class="swiper-container">
-            <ul class="swiper-wrapper gouliang">
-              <li class="swiper-slide">
-                <img src="./img/goods-item.jpg" alt="">
-                <span>￥68.8元</span>
-                <span>省7.6元</span>
-              </li>
-              <li class="swiper-slide">
-                <img src="./img/goods-item.jpg" alt="">
-                <span>￥68.8元</span>
-                <span>省7.6元</span>
-              </li>
-              <li class="swiper-slide">
-                <img src="./img/goods-item.jpg" alt="">
-                <span>￥68.8元</span>
-                <span>省7.6元</span>
-              </li>
-              <li class="swiper-slide">
-                <img src="./img/goods-item.jpg" alt="">
-                <span>￥68.8元</span>
-                <span>省7.6元</span>
-              </li>
-              <li class="swiper-slide">
-                <img src="./img/goods-item.jpg" alt="">
-                <span>￥68.8元</span>
-                <span>省7.6元</span>
-              </li>
-              <li class="swiper-slide">
-                <img src="./img/goods-item.jpg" alt="">
-                <span>￥68.8元</span>
-                <span>省7.6元</span>
-              </li>
-              <li class="swiper-slide">
-                <img src="./img/goods-item.jpg" alt="">
-                <span>￥68.8元</span>
-                <span>省7.6元</span>
-              </li>
+          <div class="big-lun"><img src="./img/dog.jpg" alt=""></div>
+          <ul class="one-tuan">
+            <li v-for="(item, index) in homepage.menu_list" :key="index">
+              <a href="javascript:">
+                <img :src="item" alt="">
+              </a>
+            </li>
 
-            </ul>
-
+          </ul>
+          <div class="yizhe">
+            <img src="./img/miaosha1.jpg" alt="">
           </div>
-        </div>
-        <div class="pin">
-          <img src="./img/pinpin.jpg" alt="">
-        </div>
-        <div class="gif">
-          <img src="./img/giff.gif" alt="">
-        </div>
-        <div class="yi-tuan"><img src="./img/yi-zhe.jpg" alt=""></div>
-        <div class="min-lunbo">
-          <div class="swiper-container">
-            <div class="swiper-wrapper">
-              <div class="swiper-slide">
-                <img src="./img/3c54559f077235436b408a6839138b4f.jpg" alt="">
-              </div>
-              <div class="swiper-slide">
-                <img src="./img/3ea8f16882581307427bd3d962fc6dd0.jpg" alt="">
-              </div>
-              <div class="swiper-slide">
-                <img src="./img/9ab35e8f6f88e2adac715cd83ac5c69c.jpg" alt="">
-              </div>
-              <div class="swiper-slide">
-                <img src="./img/9e4502cf22ecb6f8b97715c7fc73ed50.jpg" alt="">
-              </div>
+          <div class="gouliang-wrap">
+            <div class="gouliang-top">
+              <div></div>
+              <div>本场结束<span>12:00</span></div>
+              <div>更多&gt;</div>
+            </div>
+            <div class="swiper-container">
+              <ul class="swiper-wrapper gouliang">
+                <li class="swiper-slide" v-for="">
+                  <img src="./img/goods-item.jpg" alt="">
+                  <span>￥68.8元</span>
+                  <span>省7.6元</span>
+                </li>
+                <li class="swiper-slide" v-for="">
+                  <img src="./img/68d45608ddbec32608cddec587c342e1.jpg" alt="">
+                  <span>￥69.0元</span>
+                  <span>省2.6元</span>
+                </li>
+                <li class="swiper-slide" v-for="">
+                  <img src="./img/e9d557ad275060a67574834a21aecf15.jpg" alt="">
+                  <span>￥68.8元</span>
+                  <span>省7.6元</span>
+                </li>
+                <li class="swiper-slide" v-for="">
+                  <img src="./img/6d615faef8b6a01e891d8a3012fbb3e6.jpg" alt="">
+                  <span>￥68.8元</span>
+                  <span>省7.6元</span>
+                </li>
+                <li class="swiper-slide" v-for="">
+                  <img src="./img/2cdec1bd58b2216764993c30c4fd0ec1.jpg" alt="">
+                  <span>￥68.8元</span>
+                  <span>省7.6元</span>
+                </li>
+
+              </ul>
 
             </div>
-            <!-- Add Pagination -->
-            <div class="swiper-pagination"></div>
+          </div>
+          <div class="pin">
+            <img src="./img/pinpin.jpg" alt="">
+          </div>
+          <div class="gif">
+            <img src="./img/giff.gif" alt="">
+          </div>
+          <div class="yi-tuan"><img src="./img/yi-zhe.jpg" alt=""></div>
+          <div class="min-lunbo">
+            <div class="swiper-container">
+              <div class="swiper-wrapper">
+                <div class="swiper-slide" v-for="(item, i) in homepage.dapaituan_list" :key="i">
+                  <img :src="item" alt="">
+                </div>
+                <!--<div class="swiper-slide">
+                  <img src="./img/3ea8f16882581307427bd3d962fc6dd0.jpg" alt="">
+                </div>
+                <div class="swiper-slide">
+                  <img src="./img/9ab35e8f6f88e2adac715cd83ac5c69c.jpg" alt="">
+                </div>
+                <div class="swiper-slide">
+                  <img src="./img/9e4502cf22ecb6f8b97715c7fc73ed50.jpg" alt="">
+                </div>-->
+
+              </div>
+              <!-- Add Pagination -->
+              <div class="swiper-pagination"></div>
+            </div>
+          </div>
+          <div class="dapai"><img src="./img/dapaihaohuo.jpg" alt=""></div>
+          <div class="dapaiWrap">
+            <div class="daleft">
+              <img src="./img/48f18920d1f1ee4e52039bf92da2e805.jpg" alt="">
+              <img src="./img/188ceb72ed63b6ddffa093f25f517727.jpg" alt="">
+              <img src="./img/fc7b286676d1bf3fbe2d2b4b1ac633a6.jpg" alt="">
+              <img src="./img/3ea747d791b0923f775d1b23b5da9485.jpg" alt="">
+            </div>
+            <div class="daright">
+              <img src="./img/10a5324b7c6f1763122f2ee9cd54b5b7.jpg" alt="">
+              <img src="./img/67301c12c7193d19e515c59d2bf2d15a.jpg" alt="">
+              <img src="./img/b91027e7b664ebd165c8dc690fd9b778.jpg" alt="">
+              <img src="./img/b30bab969d87ef724986ad42420432f4.jpg" alt="">
+            </div>
+          </div>
+          <div class="zuic">
+            <img src="./img/zuicanjiang.jpg" alt="">
+            <img src="./img/zuicanjiang-content.jpg" alt="">
+            <img src="./img/tebiexinqiu.jpg" alt="">
+          </div>
+          <div class="chaopin">
+            <img src="./img/left.jpg" alt="">
+            <img src="./img/right-1.jpg" alt="">
+            <img src="./img/right-2.jpg" alt="">
+          </div>
+          <div class="tese">
+            <img src="./img/teselanmu.jpg" alt="">
+            <li v-for="(item, i) in homepage.lanmu_list" :key="i">
+              <img :src="item" alt="">
+            </li>
+
+            <!--<img src="./img/tese-item.jpg" alt="">
+            <img src="./img/tese-item.jpg" alt="">
+            <img src="./img/tese-item.jpg" alt="">
+            <img src="./img/tese-item.jpg" alt="">
+            <img src="./img/tese-item.jpg" alt="">
+            <img src="./img/tese-item.jpg" alt="">-->
+          </div>
+          <div class="bottom">
+            <div class="bots">
+              <a href="javascript:" style="color: red">触屏版</a>
+              <a href="javascript:">手机客户端</a>
+              <a href="javascript:">关于我们</a>
+              <a href="javascript:">联系我们</a>
+            </div>
+            <p>© wap.epet.com 版权：重庆易宠科技有限公司</p>
           </div>
         </div>
-        <div class="dapai"><img src="./img/dapaihaohuo.jpg" alt=""></div>
-        <div class="dapaiWrap">
-          <div class="daleft">
-            <img src="./img/48f18920d1f1ee4e52039bf92da2e805.jpg" alt="">
-            <img src="./img/188ceb72ed63b6ddffa093f25f517727.jpg" alt="">
-            <img src="./img/fc7b286676d1bf3fbe2d2b4b1ac633a6.jpg" alt="">
-            <img src="./img/3ea747d791b0923f775d1b23b5da9485.jpg" alt="">
-          </div>
-          <div class="daright">
-            <img src="./img/10a5324b7c6f1763122f2ee9cd54b5b7.jpg" alt="">
-            <img src="./img/67301c12c7193d19e515c59d2bf2d15a.jpg" alt="">
-            <img src="./img/b91027e7b664ebd165c8dc690fd9b778.jpg" alt="">
-            <img src="./img/b30bab969d87ef724986ad42420432f4.jpg" alt="">
-          </div>
-        </div>
-        <div class="zuic">
-          <img src="./img/zuicanjiang.jpg" alt="">
-          <img src="./img/zuicanjiang-content.jpg" alt="">
-          <img src="./img/tebiexinqiu.jpg" alt="">
-        </div>
-        <div class="chaopin">
-          <img src="./img/left.jpg" alt="">
-          <img src="./img/right-1.jpg" alt="">
-          <img src="./img/right-2.jpg" alt="">
-        </div>
-        <div class="tese">
-          <img src="./img/teselanmu.jpg" alt="">
-          <img src="./img/tese-item.jpg" alt="">
-          <img src="./img/tese-item.jpg" alt="">
-          <img src="./img/tese-item.jpg" alt="">
-          <img src="./img/tese-item.jpg" alt="">
-          <img src="./img/tese-item.jpg" alt="">
-          <img src="./img/tese-item.jpg" alt="">
-        </div>
-        <div class="bottom">
-          <div class="bots">
-            <a href="javascript:" style="color: red">触屏版</a>
-            <a href="javascript:">手机客户端</a>
-            <a href="javascript:">关于我们</a>
-            <a href="javascript:">联系我们</a>
-          </div>
-          <p>© wap.epet.com 版权：重庆易宠科技有限公司</p>
-        </div>
+
       </div>
 
       <div class="zhayan"></div>
@@ -207,7 +201,7 @@
 <script>
   import Swiper from 'swiper'
   import BScroll from 'better-scroll'
-  import '../../../static/css/swiper.min.css'
+  import {mapState} from 'vuex'
   export default {
     data(){
       return{
@@ -218,44 +212,59 @@
       guanbi(){
         this.isShow = false
         document.querySelector('.one').classList.add('on_one')
+
+        document.querySelector('.one-content-w').classList.remove('w')
+        document.querySelector('.one-content-w').classList.add('on_w')
       },
       changeOn(){
         console.log(this)
+      },
+      _bs(){
+        new BScroll(this.$refs.navWrap,{
+          click:true,
+          scrollX:true,
+        }),
+        new BScroll(this.$refs.contentWrap,{
+            click:true,
+            scrollY:true,
+          }),
+        new Swiper('.lunbo>.swiper-container', {
+            loop: true,
+            pagination: {
+              el: '.swiper-pagination',
+              clickable: true,
+            },
+            autoplay:{
+              delay:2500,
+              disableOnInteraction:false,
+            },
+          })
+        new Swiper('.gouliang-wrap>.swiper-container', {
+          slidesPerView: 3.5,
+        })
+        new Swiper('.min-lunbo>.swiper-container', {
+          loop: true,
+          pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+          },
+          autoplay:{
+            delay:2500,
+            disableOnInteraction:false,
+          },
+        })
       }
 
     },
+    computed:{
+      ...mapState(['homepage'])
+    },
     mounted () {
-
-      new BScroll(this.$refs.navWrap,{
-        click:true,
-        scrollX:true,
+      this.$store.dispatch('getHomePage',() => {
+        this.$nextTick(() => {
+          this._bs()
+        })
       })
-      new Swiper('.lunbo>.swiper-container', {
-        loop: true,
-        pagination: {
-          el: '.swiper-pagination',
-          clickable: true,
-        },
-        autoplay:{
-          delay:2500,
-          disableOnInteraction:false,
-        },
-      })
-      new Swiper('.gouliang-wrap>.swiper-container', {
-        slidesPerView: 3.5,
-      })
-      new Swiper('.min-lunbo>.swiper-container', {
-        loop: true,
-        pagination: {
-          el: '.swiper-pagination',
-          clickable: true,
-        },
-        autoplay:{
-          delay:2500,
-          disableOnInteraction:false,
-        },
-      })
-
     }
   }
 
@@ -265,7 +274,7 @@
 .wrap
   width 100%
   height 100%
-  overflow hidden
+  /*overflow hidden*/
   position relative
   background white
   .one
@@ -354,157 +363,171 @@
             border-bottom 3px solid #00b400
 
 
-    .one-content
-      .lunbo
-        width 100%
-        .swiper-pagination-bullet
-          background rgba(240,240,240,.6)
-          transition all .5s
-        .swiper-pagination-bullet-active
-          width 16px
-          height 8px
-          border-radius 4px
-          background rgba(240,240,240,.6)
-          transition all .5s
-        img
+    .one-content-w
+      width 100%
+      position fixed
+      top 85px
+      bottom 0
+      margin auto
+      &.w
+        padding-top 55px
+      &.on-w
+        padding-top 0px
+      .one-content
+        padding-bottom 110px
+        .lunbo
           width 100%
-
-      .big-lun
-        width 100%
-        margin-top -3px
-        img
-          width 100%
-      .one-tuan
-        display flex
-        justify-content space-between
-        flex-wrap wrap
-        >li
-          width 20%
-          a
-            display block
+          .swiper-pagination-bullet
+            background rgba(240,240,240,.6)
+            transition all .5s
+          .swiper-pagination-bullet-active
+            width 16px
+            height 8px
+            border-radius 4px
+            background rgba(240,240,240,.6)
+            transition all .5s
+          img
             width 100%
-            img
-              width 100%
-      .yizhe
-        width 100%
-        img
+
+        .big-lun
           width 100%
-      .gouliang-wrap
-        padding-bottom 10px
-        .gouliang-top
-          width 100%
-          height 42px
-          line-height 42px
-          padding 5px
-          box-sizing border-box
-          div
-            float left
-            text-align center
-          >:nth-child(1)
-            width 30%
-            height 42px
-            background url('./img/fengqiang.png') no-repeat
-            background-position center center
-            background-size 100%
-          >:nth-child(2)
-            width 50%
-            margin-left 0px
-            box-sizing border-box
-          >:nth-child(3)
+          margin-top -3px
+          img
+            width 100%
+        .one-tuan
+          display flex
+          justify-content space-between
+          flex-wrap wrap
+          margin-top -2px
+          >li
             width 20%
-        .swiper-container
-          width 100%
-          li
-            text-align center
-            img
-              width 100px
-            >:nth-child(2)
-              color red
+            margin-top -2px
+            a
               display block
-            >:nth-child(3)
-              color #7e8c8d
-              font-size 14px
-
-      .pin
-        width 100%
-        img
-          width 100%
-
-
-      .gif
-        width 100%
-        img
-          width 100%
-      .yi-tuan
-        width 100%
-        img
-          width 100%
-      .min-lunbo
-        width 100%
-        .swiper-container
-          .swiper-wrapper
-            .swiper-slide
+              width 100%
               img
                 width 100%
-      .dapai
-        width 100%
-        img
+        .yizhe
           width 100%
+          margin-top -2px
+          img
+            width 100%
+        .gouliang-wrap
+          padding-bottom 10px
+          .gouliang-top
+            width 100%
+            height 42px
+            line-height 42px
+            padding 5px
+            box-sizing border-box
+            div
+              float left
+              text-align center
+            >:nth-child(1)
+              width 30%
+              height 42px
+              background url('./img/fengqiang.png') no-repeat
+              background-position center center
+              background-size 100%
+            >:nth-child(2)
+              width 50%
+              margin-left 0px
+              box-sizing border-box
+            >:nth-child(3)
+              width 20%
+          .swiper-container
+            width 100%
+            li
+              text-align center
+              img
+                width 100px
+              >:nth-child(2)
+                color red
+                display block
+              >:nth-child(3)
+                color #7e8c8d
+                font-size 14px
 
-      .dapaiWrap
-        overflow hidden
-        margin-top -2px
-        .daleft
-          width 50%
-          float left
+        .pin
+          width 100%
           img
             width 100%
-            margin-top -2px
-        .daright
-          width 50%
-          float left
+
+
+        .gif
+          width 100%
           img
             width 100%
-            margin-top -2px
-      .zuic
-        width 100%
-        margin-top -3px
-        img
+        .yi-tuan
           width 100%
-          display block
-      .chaopin
-        width 100%
-        overflow hidden
-        img
-          float left
-          width 50%
-        >:nth-child(1)
-          width 50%
-      .tese
-        width 100%
-        overflow hidden
-        margin-top -3px
-        margin-bottom 3px
-        >:nth-child(1)
+          img
+            width 100%
+        .min-lunbo
           width 100%
-        img
-          float left
-          width 50%
-      .bottom
-        width 100%
-        padding-bottom  5px
-        div
+          .swiper-container
+            .swiper-wrapper
+              .swiper-slide
+                img
+                  width 100%
+        .dapai
           width 100%
-          display flex
-          justify-content center
-          a
-            margin 0 5px
-            color #5f6d6e
-        p
-          font-size 10px
-          text-align center
-          line-height 18px
-          color #8b999a
+          img
+            width 100%
+
+        .dapaiWrap
+          overflow hidden
+          margin-top -2px
+          .daleft
+            width 50%
+            float left
+            img
+              width 100%
+              margin-top -2px
+          .daright
+            width 50%
+            float left
+            img
+              width 100%
+              margin-top -2px
+        .zuic
+          width 100%
+          margin-top -3px
+          img
+            width 100%
+            display block
+        .chaopin
+          width 100%
+          overflow hidden
+          img
+            float left
+            width 50%
+          >:nth-child(1)
+            width 50%
+        .tese
+          width 100%
+          overflow hidden
+          margin-top -3px
+          margin-bottom 3px
+          >:nth-child(1)
+            width 100%
+          img
+            float left
+            width 50%
+        .bottom
+          width 100%
+          padding-bottom  5px
+          div
+            width 100%
+            display flex
+            justify-content center
+            a
+              margin 0 5px
+              color #5f6d6e
+          p
+            font-size 10px
+            text-align center
+            line-height 18px
+            color #8b999a
   .zhayan
     position fixed
     z-index 50

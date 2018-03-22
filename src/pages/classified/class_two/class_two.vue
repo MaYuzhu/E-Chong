@@ -1,56 +1,37 @@
 <template>
 	<div class="c-two">
-    <div class="tuijian">
-      <p>—— 推荐品牌 ——</p>
-      <ul>
-        <li>
-          <a href="javascript:">
-            <div>
-              <div>
-                <img src="./img/2af1de3319e5729745a6f52097b1bc5f.jpg" alt="">
-              </div>
-              <p>关cit</p>
-              <p>美国</p>
-            </div>
-          </a>
-        </li>
-        <li>
-          <a href="javascript:">
-            <div>
-              <div>
-                <img src="./img/2af1de3319e5729745a6f52097b1bc5f.jpg" alt="">
-              </div>
-              <p>关cit</p>
-              <p>美国</p>
-            </div>
-          </a>
-        </li>
-        <li>
-          <a href="javascript:">
-            <div>
-              <div>
-                <img src="./img/2af1de3319e5729745a6f52097b1bc5f.jpg" alt="">
-              </div>
-              <p>关cit</p>
-              <p>美国</p>
-            </div>
-          </a>
-        </li>
-        <li>
-          <a href="javascript:">
-            <div>
-              <div>
-                <img src="./img/2af1de3319e5729745a6f52097b1bc5f.jpg" alt="">
-              </div>
-              <p>关cit</p>
-              <p>美国</p>
-            </div>
-          </a>
-        </li>
-      </ul>
-    </div>
     <border_top></border_top>
-    <div class="zhuliang">
+    <div class="tuijian" v-for="(item,i) in brand" :key="i">
+      <p>—— <span>{{item.title}}</span> ——</p>
+      <ul>
+        <li v-for="(classB,i) in item.list" :key="i">
+          <a href="javascript:">
+            <div>
+              <div>
+                <img :src="classB.logo" alt="">
+              </div>
+              <p>{{classB.name}}</p>
+              <p>{{classB.address}}</p>
+            </div>
+          </a>
+        </li>
+        <!--<li>
+          <a href="javascript:">
+            <div>
+              <div>
+                <img src="./img/2af1de3319e5729745a6f52097b1bc5f.jpg" alt="">
+              </div>
+              <p>关cit</p>
+              <p>美国</p>
+            </div>
+          </a>
+        </li>-->
+
+      </ul>
+
+    </div>
+
+    <!--<div class="zhuliang">
       <p>—— 主粮品牌 ——</p>
       <ul>
         <li>
@@ -101,7 +82,7 @@
     </div>
     <border_top></border_top>
     <div class="lingshi">
-      <p>—— 零食品牌 ——</p>
+      <p>—— <span>零食品牌</span> ——</p>
       <ul>
         <li>
           <a href="javascript:">
@@ -148,14 +129,23 @@
           </a>
         </li>
       </ul>
-    </div>
+    </div>-->
+
+
     <router-link class="all" tag="div" to="/all">全部</router-link>
 	</div>
 </template>
 
 <script>
   import border_top from '../../../components/border_top/border_top.vue'
+  import {mapState} from 'vuex'
   export default {
+    computed:{
+      ...mapState(['brand'])
+    },
+    mounted(){
+      this.$store.dispatch('getBrand')
+    },
     components:{
       border_top
     }
@@ -172,6 +162,7 @@
       background white
       padding 0 6px
       box-sizing border-box
+      margin-bottom 10px
       >p
         padding 20px
         text-align center
@@ -180,7 +171,7 @@
       >ul
         display flex
         flex-wrap wrap
-        justify-content space-between
+        justify-content flex-start
         >li
           width 33.33%
           padding 0 6px
