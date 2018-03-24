@@ -19,7 +19,6 @@
     </ul>
     <ul class="zimu">
       <li class=" " v-for="(item,i) in allbrands.brand" :key="i">{{item.order}}</li>
-
     </ul>
 	</div>
 </template>

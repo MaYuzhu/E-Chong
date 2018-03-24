@@ -1,30 +1,54 @@
 <template>
-	<div class="app">
+	<div class="aaa">
 
     <div class="left" ref="leftList">
       <ul class="gouliang">
-        <li  @click="setOn"
+        <li  @click="setOn(index)" :class="{on:myIndex === index}"
             v-for="(list,index) in categorys" :key="index">{{list.name}}</li>
 
       </ul>
     </div>
     <div class="right" ref="rightList">
-      <div v-for="(list,index) in categorys" :key="index">
-        <div class="food_wrap">
+      <div>
+        <div class="food_wrap"  v-for="(list,index) in categorys" :key="index"
+              v-if="myIndex===index">
           <div class="food">
             <a href="javascript:">{{list.name}}<span>更多商品</span></a>
           </div>
-          <div class="foods">
-            <ul>
-              <li><a href="javascript:"><img src="./img/liang.jpg" alt=""><p>国产狗粮</p></a></li>
-              <li><a href="javascript:"><img src="./img/liang.jpg" alt=""><p>国产狗粮</p></a></li>
-              <li><a href="javascript:"><img src="./img/liang.jpg" alt=""><p>国产狗粮</p></a></li>
-              <li><a href="javascript:"><img src="./img/liang.jpg" alt=""><p>国产狗粮</p></a></li>
+          <div class="foods" v-for="(foodL,index) in list.cate_list">
+            <ul v-if="foodL.type===0">
+              <li v-for="(food,index) in foodL.list"><a href="javascript:">
+                <img :src="food.photo" alt="">
+                <p>{{food.name}}</p>
+                </a>
+              </li>
             </ul>
+
+          </div>
+
+          <div class="foods" v-for="(foodL,index) in list.cate_list" v-if="foodL.type===2">
+            <div class="food">
+              <a href="javascript:">{{foodL.title}}<span>更多商品</span></a>
+            </div>
+            <ul>
+              <li v-for="(food,index) in foodL.list"><a href="javascript:">
+                <img :src="food.logo" alt="">
+                <p>{{food.name}}</p>
+              </a>
+              </li>
+            </ul>
+
+            <!--<ul v-if="foodL.type===2">
+              <li v-for="(food,index) in foodL.list"><a href="javascript:">
+                <img :src="food.logo" alt="">
+                <p>{{food.title}}</p>
+              </a>
+              </li>
+            </ul>-->
           </div>
         </div>
 
-        <div class="pai">
+        <!--<div class="pai">
           <p><a href="javascript:">热门品牌</a></p>
           <div class="pai_item">
             <a href="javascript:">
@@ -82,7 +106,7 @@
               <p>天衡宝(原雪山)</p>
             </a>
           </div>
-        </div>
+        </div>-->
       </div>
 
     </div>
@@ -95,7 +119,7 @@
   export default {
     data(){
       return{
-        isYes:true,
+        myIndex : 0
       }
     },
     mounted(){
@@ -109,8 +133,8 @@
 
      },
     methods:{
-      setOn(){
-        this.isYes = false
+      setOn(index){
+        this.myIndex = index
       },
       _left(){
         new BScroll(this.$refs.leftList,{
@@ -132,8 +156,7 @@
 </script>
 
 <style lang="stylus" rel="stylesheet/stylus">
-.app
-  margin-top 40px
+.aaa
   width 100%
   height 100%
   background #dddddd
@@ -143,7 +166,8 @@
     width 20%
     position absolute
     left 0
-    top 0
+    top 41px
+    bottom 56px
     height 84%
     margin-top 3px
     ul
@@ -161,12 +185,14 @@
         color red
   .right
     position absolute
+    background #ffffff
     right 0
-    top 0
+    top 41px
+    bottom 56px
     width 79%
     box-sizing border-box
     margin-left 0
-    height 84%
+    height 85%
     .food_wrap
       width 100%
       background white
@@ -196,11 +222,15 @@
           justify-content space-between
           li
             width 31%
+            padding-top 3px
             a
               display block
               width 100%
+              padding-bottom 3px
+
               img
                 width 100%
+                /*border 1px solid #111*/
               p
                 text-align center
                 color black
