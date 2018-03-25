@@ -24,8 +24,12 @@
 
         </div>
         <div class="nav" ref="navWrap">
-          <ul class="nav-inner" @click="changeOn">
-            <li v-for="(item,index) in homepage.menus" :key="index"><a href="javascript:"> <span class="">{{item.menu_name}}</span></a></li>
+          <ul class="nav-inner">
+            <li v-for="(item,index) in homepage.menus" :key="index" @click="changeG(index)">
+              <a href="javascript:">
+                <span :class='{on:changeIndex===index}'>{{item.menu_name}}</span>
+              </a>
+            </li>
 
             <!--<li><a href="javascript:"> <span>服饰城</span></a></li>
             <li><a href="javascript:"> <span>医疗保健</span></a></li>
@@ -205,7 +209,8 @@
   export default {
     data(){
       return{
-        isShow:true
+        isShow:true,
+        changeIndex:0
       }
     },
     methods:{
@@ -215,9 +220,11 @@
 
         document.querySelector('.one-content-w').classList.remove('w')
         document.querySelector('.one-content-w').classList.add('on_w')
+
+        document.querySelector('.one-content').classList.add('on_bottom')
       },
-      changeOn(){
-        console.log(this)
+      changeG(index){
+        this.changeIndex = index
       },
       _bs(){
         new BScroll(this.$refs.navWrap,{
@@ -282,7 +289,7 @@
     padding-bottom 55px
     &.on_one
       padding-top 85px
-      padding-bottom 55px
+      padding-bottom 0px
     .header-wrap
       position fixed
       top 0
@@ -372,9 +379,11 @@
       &.w
         padding-top 55px
       &.on-w
-        padding-top 0px
+        padding-top 0
       .one-content
         padding-bottom 110px
+        &.on_bottom
+          padding-bottom 55px
         .lunbo
           width 100%
           .swiper-pagination-bullet

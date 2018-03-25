@@ -23,9 +23,10 @@ export default {
     const result = await reqBrand()
     commit(RECEIVE_BRAND,{brand:result.data})
   },
-  async getAllBrand ({commit}) {
+  async getAllBrand ({commit},cb) {
     const result = await reqAllbrands()
     commit(RECEIVE_ALLBRANDS,{allbrands:result.data})
+    cb && cb()
   },
   async getHomePage ({commit},cb) {
     const result = await reqHomepage()
